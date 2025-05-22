@@ -22,6 +22,8 @@ BUCKET_NAME = os.getenv("S3_BUCKET_NAME")
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
+    print('Ejecutando...')
+    print(request.files)
     if 'file' not in request.files:
         return make_response(jsonify({"error": "No se envió archivo"}), 400)
 
